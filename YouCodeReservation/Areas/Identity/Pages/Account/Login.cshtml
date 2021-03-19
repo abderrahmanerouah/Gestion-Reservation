@@ -1,0 +1,52 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+<form id="account" method="post">
+    
+        <div class="card card0 border-0">
+            <div class="row d-flex">
+                <div class="col-lg-6">
+                    <div class="card1 pb-5">
+                        <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
+                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card2 card border-0 px-4 py-5">
+                 
+                       
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="row px-3">
+                            <label asp-for="Input.Email" class="mb-1">
+
+                            </label> <input asp-for="Input.Email" class="mb-4" type="text" name="email" placeholder="Enter a valid email address">
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="row px-3">
+                            <label asp-for="Input.Password" class="mb-1">
+
+                            </label> <input asp-for="Input.Password" type="password" name="password" placeholder="Enter password">
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> </div>
+                        </div>
+
+                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-danger ">Register</a></small> </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
